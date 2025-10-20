@@ -5,14 +5,14 @@ class Patient:
 class MinHeap:
     def __init__(self):
         self.data=[]
-    def _parent(self, i): return (i - 1) // 2
-    def _left(self, i): return 2 * i + 1
-    def _right(self, i): return 2 * i + 2
+    def _parent(self, i): return (i-1)//2
+    def _left(self, i): return 2*i+1
+    def _right(self, i): return 2*i+2
     def heapify_up(self, index):
-        while index > 0:
+        while index>0:
             parent_index=self._parent(index)
             if self.data[index].urgency < self.data[parent_index].urgency:
-                self.data[index], self.data[parent_index] = self.data[parent_index], self.data[index]
+                self.data[index], self.data[parent_index]=self.data[parent_index], self.data[index]
                 index=parent_index
             else:
                 break
@@ -22,13 +22,13 @@ class MinHeap:
             left=self._left(index)
             right=self._right(index)
             smallest=index
-            if left < size and self.data[left].urgency < self.data[smallest].urgency:
+            if left<size and self.data[left].urgency<self.data[smallest].urgency:
                 smallest=left
-            if right < size and self.data[right].urgency < self.data[smallest].urgency:
+            if right<size and self.data[right].urgency<self.data[smallest].urgency:
                 smallest=right
 
             if smallest!=index:
-                self.data[index], self.data[smallest] = self.data[smallest], self.data[index]
+                self.data[index], self.data[smallest]=self.data[smallest], self.data[index]
                 index=smallest
             else:
                 break
