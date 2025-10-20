@@ -29,38 +29,38 @@ class DoctorTree:
     def _find(self, node, target):
         if node is None:
             return None
-        if node.name == target:
+        if node.name==target:
             return node
-        left_result = self._find(node.left, target)
+        left_result=self._find(node.left, target)
         if left_result:
             return left_result
         return self._find(node.right, target)
     def preorder(self, node):
         if node is None:
             return []
-        result = [node.name]
-        result += self.preorder(node.left)
-        result += self.preorder(node.right)
+        result=[node.name]
+        result+=self.preorder(node.left)
+        result+=self.preorder(node.right)
         return result
     def inorder(self, node):
         if node is None:
             return []
-        result = []
-        result += self.inorder(node.left)
+        result=[]
+        result+=self.inorder(node.left)
         result.append(node.name)
-        result += self.inorder(node.right)
+        result+=self.inorder(node.right)
         return result
     def postorder(self, node):
         if node is None:
             return []
-        result = []
-        result += self.postorder(node.left)
-        result += self.postorder(node.right)
+        result=[]
+        result=self.postorder(node.left)
+        result+=self.postorder(node.right)
         result.append(node.name)
         return result
-if __name__ == "__main__":
-    tree = DoctorTree()
-    tree.root = DoctorNode("Dr. Croft")
+if __name__=="__main__":
+    tree=DoctorTree()
+    tree.root=DoctorNode("Dr. Croft")
     tree.insert("Dr. Croft", "Dr. Goldsmith", "right")
     tree.insert("Dr. Croft", "Dr. Phan", "left")
     tree.insert("Dr. Phan", "Dr. Carson", "right")
